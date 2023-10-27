@@ -1,0 +1,17 @@
+export const startTodoList = [
+    {id: 1, text: 'Buy gro', isDone: true, deadline: '2024-03-31'},
+    {id: 2, text: 'Do lau', isDone: false, deadline: '2023-03-28'},
+    {id: 3, text: ' Clean bath', isDone: false, deadline: '2023-04-02'},
+    {id: 4, text: 'Walk dog', isDone: false, deadline: '2024-02-29'},
+    {id: 5, text: ' Call mom', isDone: false, deadline: '2023-02-30'},
+    {id: 6, text: 'Read book', isDone: false, deadline: '2024-04-23'},
+    {id: 7, text: 'write report', isDone: false, deadline: '2024-04-04'},
+    {id: 8, text: 'Pay billds', isDone: false, deadline: '2024-03-30'},
+    {id: 9, text: 'Go gym', isDone: false, deadline: '2024-04-03'},
+    {id: 10, text: 'Attend meeting', isDone: false, deadline: '2023-04-05'},
+    {id: 11, text: 'Buy gift', isDone: false, deadline: '2023-04-06'},
+    {id: 12, text: 'fin pro', isDone: true, deadline: '2023-04-07'},
+    {id: 13, text: 'sub app', isDone: false, deadline: '2023-04-09'},
+    {id: 14, text: 'practiice pi', isDone: false, deadline: '2023-04-08'},
+    {id: 15, text: 'cok din', isDone: true, deadline: '2023-04-02'},
+];

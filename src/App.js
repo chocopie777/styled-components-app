@@ -1,25 +1,59 @@
-import logo from './logo.svg';
 import './App.css';
+import {startTodoList} from './data';
+import {TodoList} from "./TodoList";
+import {useState} from "react";
+import styled from "styled-components";
+import {Theme} from "./theme";
 
+
+const Title =  styled.h1`
+    color: ${({theme}) => theme.colors.title};
+  
+`
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [todos, setTodos] = useState(startTodoList);
+    const getOverdueTodos = () => {
+        const today = new Date()
+        return todos.filter((todo) => !todo.isDone && new Date(todo.deadline) < today)
+    }
+
+    const getActualTodos = () => {
+        const today = new Date();
+        return todos.filter((todo) => !todo.isDone && new Date(todo.deadline) >= today)
+    }
+
+    const getCompletedTodos = () => {
+        return todos.filter((todo) => todo.isDone)
+    }
+
+    const toggleTodo = (id) => {
+        const updatedTodos = todos.map((todo) => {
+            if (todo.id = id) {
+                return {...todo, isDone: !todo.isDone}
+            } else {
+                return todo
+            }
+        })
+        setTodos(updatedTodos)
+    }
+
+    return (
+        <Theme>
+            <Title>Todo List</Title>
+            <TodoList
+                title="Overdue"
+                items={getOverdueTodos()}
+                onToggleTodo={toggleTodo}/>
+            <TodoList
+                title="Actual"
+                items={getActualTodos()}
+                onToggleTodo={toggleTodo}/>
+            <TodoList
+                title="Completed"
+                items={getCompletedTodos()}
+                onToggleTodo={toggleTodo}/>
+        </Theme>
+    )
 }
 
 export default App;
